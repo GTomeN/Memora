@@ -75,11 +75,11 @@ export function montarDosesDoDia(remedios, eventos, agora) {
 
       doses.push({
         chave: `${remedio.id}-${horario}`,
-        remedio: remedio,
-        horario: horario,
+        remedio,
+        horario,
         compartimento: compartimentoDoHorario(horario),
         status: statusDaDose(horarioPrevisto, agora, Boolean(retirada)),
-        horarioRetirada: horarioRetirada,
+        horarioRetirada,
       })
     }
   }

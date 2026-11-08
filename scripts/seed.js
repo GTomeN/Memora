@@ -68,7 +68,7 @@ function evento(tipo, remedio, horario, previsto, quando, extras = {}) {
   return {
     remedioId: remedio.id,
     compartimento: compartimentoDoHorario(horario),
-    tipo: tipo,
+    tipo,
     horarioPrevisto: previsto.toISOString(),
     horarioEvento: quando.toISOString(),
     temperatura: null,

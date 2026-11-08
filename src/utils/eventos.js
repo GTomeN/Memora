@@ -5,10 +5,10 @@ export function novoEvento(tipo, remedio, horario, agora, temperatura = null) {
   return {
     remedioId: remedio.id,
     compartimento: compartimentoDoHorario(horario),
-    tipo: tipo,
+    tipo,
     horarioPrevisto: dataComHorario(agora, horario).toISOString(),
     horarioEvento: new Date(agora).toISOString(),
-    temperatura: temperatura,
+    temperatura,
     visto: false,
     vistoPor: null,
     vistoEm: null,

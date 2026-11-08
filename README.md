@@ -1,16 +1,84 @@
-# React + Vite
+# Memora · Painel do Cuidador
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Ficha da CitizenTech
 
-Currently, two official plugins are available:
+| Campo | Resposta |
+|---|---|
+| Nome da CitizenTech | Memora |
+| Cidade e bairro | São Paulo, [preencher bairro] |
+| Cidadão beneficiado | Pessoa idosa com Alzheimer em estágio inicial ou moderado que passa parte do dia sozinha em casa, e o familiar que cuida dela. |
+| Problema, em uma frase | Idosos com Alzheimer esquecem de tomar o remédio ou tomam a mesma dose duas vezes, e o familiar que cuida não tem como saber disso quando não está presente. |
+| Como funciona | No horário da dose, a caixa acende só o compartimento certo e toca um lembrete com a voz gravada da família; um sensor confirma se o remédio foi retirado. Se não for, o cuidador recebe um alerta no painel e no WhatsApp, e uma tentativa de abrir outro compartimento fora de hora também é avisada. A caixa também vigia a temperatura onde os remédios ficam guardados e funciona mesmo sem internet. |
+| O que cada parte faz | Sensor (Edge): ESP32 no Wokwi e caixa física com 3 compartimentos. Lógica (Python): Central do Cuidador em terminal com JSON. Matemática (DPS): modelo da concentração do remédio no corpo. Interface e Interação (Front-end + Web Dev): painel web em React para o cuidador, com CRUD de remédios, horários e contatos. Experiência (STXD): jornada, requisitos, casos de uso e protótipo. Pitch (Storytelling): vídeo de 3 minutos e marca. |
+| Link do repositório | https://github.com/GTomeN/Memora |
+| Indicador de impacto | Taxa de adesão: % de doses retiradas no horário, por semana. Complementares: doses perdidas, tentativas de dose dupla bloqueadas e tempo médio até o cuidador responder a um alerta. |
+| ODS conectados | ODS 3 (Saúde e bem-estar) como principal; ODS 10 (Redução das desigualdades) como secundário. |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Sobre o projeto
 
-## React Compiler
+O Memora é um porta-remédios conectado para a pessoa idosa com Alzheimer que passa parte do dia sozinha. Este repositório tem o **painel web do cuidador**, onde o familiar:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- vê se o remédio de cada horário saiu da caixa;
+- cadastra os remédios e os horários;
+- organiza a rede de cuidado, ou seja, quem recebe os avisos e em que ordem;
+- grava o lembrete de voz que toca na hora da dose;
+- acompanha o histórico e a taxa de adesão da semana;
+- recebe os alertas e marca "Vi o aviso".
 
-## Expanding the Oxlint configuration
+Como não há uma caixa real conectada ao painel, a tela **Hoje** tem uma área de simulação para criar eventos (remédio retirado, tentativa fora de hora, temperatura alta).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+> O Memora é um **apoio ao cuidado**. Ele não substitui o cuidador, o médico ou o farmacêutico.
+> Todos os dados do projeto são **fictícios**: pessoas, telefones e remédios ("Remédio A", "Remédio B").
+
+## Tecnologias
+
+- React com Vite
+- React Router (`react-router-dom`)
+- Axios
+- MockAPI.io como API externa
+- Tailwind CSS (parte de Front-end)
+- Deploy na Vercel
+
+## Pré-requisitos
+
+- [Node.js](https://nodejs.org/) 20.19 ou mais recente (ou 22.12+)
+- npm (vem junto com o Node)
+- Uma conta na [MockAPI](https://mockapi.io/) com os resources `remedios`, `contatos` e `eventos`
+
+## Instalação
+
+```bash
+git clone https://github.com/GTomeN/Memora.git
+cd Memora
+npm install
+```
+
+Copie o arquivo `.env.example` para `.env` e coloque as URLs do seu projeto na MockAPI:
+
+```
+VITE_API_URL=https://SEU_ID.mockapi.io/api/v1
+VITE_API_URL_EVENTOS=https://SEU_ID.mockapi.io/api/v1
+```
+
+- `VITE_API_URL` é usada pelos resources `remedios` e `contatos`.
+- `VITE_API_URL_EVENTOS` é usada pelo resource `eventos`. Ela existe separada porque o plano grátis da MockAPI tem limite de resources por projeto. Se o seu projeto aceitar os três, use a mesma URL nas duas.
+
+## Execução
+
+```bash
+npm run dev
+```
+
+Abra http://localhost:5173 no navegador.
+
+Outros comandos:
+
+| Comando | O que faz |
+|---|---|
+| `npm run build` | Gera a versão de produção na pasta `dist` |
+| `npm run preview` | Abre a versão de produção localmente |
+| `npm run lint` | Verifica o código com o oxlint |
+
+## Integrantes
+
+Veja o arquivo [Integrantes.md](Integrantes.md).

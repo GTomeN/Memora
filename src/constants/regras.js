@@ -1,0 +1,5 @@
+export const MINUTOS_LEMBRETE = 10
+export const MINUTOS_NO_HORARIO = 20
+export const MINUTOS_CASCATA = 10
+export const LIMITE_TEMPERATURA_PADRAO = 30
+export const DIAS_AVISO_REPOSICAO = 7

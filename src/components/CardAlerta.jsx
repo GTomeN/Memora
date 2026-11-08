@@ -31,7 +31,7 @@ function textoDoResponsavel(responsavel) {
 
 function CardAlerta({ alerta, onVisto }) {
   return (
-    <article>
+    <article data-tipo={alerta.evento.tipo}>
       <p>Aviso das {formatarHora(alerta.evento.horarioEvento)}</p>
       <p>{textoDoAlerta(alerta)}</p>
       <p>{textoDoResponsavel(alerta.responsavel)}</p>

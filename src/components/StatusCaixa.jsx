@@ -8,7 +8,7 @@ const TEXTOS = {
 
 function StatusCaixa({ status }) {
   return (
-    <section aria-label="Status da caixa">
+    <section aria-label="Status da caixa" data-status={status}>
       <h3>Como está a caixa</h3>
       <p>{TEXTOS[status]}</p>
     </section>

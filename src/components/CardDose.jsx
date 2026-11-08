@@ -19,7 +19,7 @@ function textoDoStatus(dose) {
 
 function CardDose({ dose }) {
   return (
-    <article>
+    <article data-status={dose.status}>
       <h3>Remédio da {COMPARTIMENTOS[dose.compartimento]} · {dose.horario}</h3>
       <p>{dose.remedio.nome} · {dose.remedio.dosagem}</p>
       <p>{textoDoStatus(dose)}</p>

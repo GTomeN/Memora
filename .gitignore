@@ -18,8 +18,7 @@ dist-ssr
 # Arquivos de referência locais (não vão para o repositório)
 CLAUDE.md
 .claude/
-docs/*.pdf
-docs/*.jpeg
+docs/
 
 # Editor directories and files
 .vscode/*

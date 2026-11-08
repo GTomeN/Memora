@@ -14,6 +14,10 @@
 | Indicador de impacto | Taxa de adesão: % de doses retiradas no horário, por semana. Complementares: doses perdidas, tentativas de dose dupla bloqueadas e tempo médio até o cuidador responder a um alerta. |
 | ODS conectados | ODS 3 (Saúde e bem-estar) como principal; ODS 10 (Redução das desigualdades) como secundário. |
 
+## Site publicado
+
+**https://memora-painel.vercel.app**
+
 ## Sobre o projeto
 
 O Memora é um porta-remédios conectado para a pessoa idosa com Alzheimer que passa parte do dia sozinha. Este repositório tem o **painel web do cuidador**, onde o familiar:

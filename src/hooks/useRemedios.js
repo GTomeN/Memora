@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { listarRemedios, criarRemedio, atualizarRemedio, excluirRemedio } from '../services/remediosService'
+import { diasAteAcabar, precisaRepor } from '../utils/reposicao'
 
 function useRemedios() {
   const [remedios, setRemedios] = useState([])
@@ -57,7 +58,14 @@ function useRemedios() {
     }
   }
 
-  return { remedios, carregando, erro, adicionarRemedio, editarRemedio, removerRemedio }
+  const remediosAcabando = remedios.filter((remedio) => remedio.ativo && precisaRepor(remedio))
+  const avisosReposicao = remediosAcabando.map((remedio) => ({
+    id: remedio.id,
+    nome: remedio.nome,
+    dias: diasAteAcabar(remedio),
+  }))
+
+  return { remedios, carregando, erro, avisosReposicao, adicionarRemedio, editarRemedio, removerRemedio }
 }
 
 export default useRemedios

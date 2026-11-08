@@ -6,9 +6,23 @@ export function geraAlerta(evento) {
   return TIPOS_QUE_GERAM_ALERTA.includes(evento.tipo)
 }
 
+export function ordenarPorCascata(contatos) {
+  return [...contatos].sort((a, b) => a.ordemCascata - b.ordemCascata)
+}
+
 export function contatosDaCascata(contatos) {
   const ativos = contatos.filter((contato) => contato.ativo)
-  return ativos.sort((a, b) => a.ordemCascata - b.ordemCascata)
+  return ordenarPorCascata(ativos)
+}
+
+export function proximaOrdem(contatos) {
+  let maior = 0
+  for (const contato of contatos) {
+    if (contato.ordemCascata > maior) {
+      maior = contato.ordemCascata
+    }
+  }
+  return maior + 1
 }
 
 export function contatoResponsavel(alerta, contatos, agora) {

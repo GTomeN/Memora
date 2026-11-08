@@ -1,8 +1,75 @@
+import { useState } from 'react'
+import useRemedios from '../hooks/useRemedios'
+import useEventos from '../hooks/useEventos'
+import useDosesDeHoje from '../hooks/useDosesDeHoje'
+import useSimulador from '../hooks/useSimulador'
+import StatusCaixa from '../components/StatusCaixa'
+import CardDose from '../components/CardDose'
+import AvisoReposicao from '../components/AvisoReposicao'
+import SimuladorEventos from '../components/SimuladorEventos'
+import ConfirmDialog from '../components/ConfirmDialog'
+import Carregando from '../components/Carregando'
+import MensagemErro from '../components/MensagemErro'
+
 function Hoje() {
+  const remediosApi = useRemedios()
+  const eventosApi = useEventos()
+  const { doses, status } = useDosesDeHoje(remediosApi.remedios, eventosApi.eventos)
+  const simulador = useSimulador(
+    eventosApi.eventos,
+    eventosApi.adicionarEvento,
+    eventosApi.removerEvento,
+    remediosApi.editarRemedio,
+  )
+  const [confirmarLimpeza, setConfirmarLimpeza] = useState(false)
+
+  const carregando = remediosApi.carregando || eventosApi.carregando
+
+  async function limpar() {
+    setConfirmarLimpeza(false)
+    await simulador.limparEventos()
+  }
+
   return (
     <section>
       <h2>Hoje</h2>
-      <p>Aqui vão aparecer o status da caixa e as doses do dia.</p>
+
+      <MensagemErro mensagem={remediosApi.erro} />
+      <MensagemErro mensagem={eventosApi.erro} />
+
+      {carregando && <Carregando texto="Carregando as doses de hoje..." />}
+
+      {!carregando && (
+        <>
+          <StatusCaixa status={status} />
+          <AvisoReposicao avisos={remediosApi.avisosReposicao} />
+
+          <h3>Doses de hoje</h3>
+          {doses.length === 0 && <p>Nenhuma dose prevista para hoje. Cadastre os remédios na tela Remédios.</p>}
+          {doses.map((dose) => (
+            <CardDose key={dose.chave} dose={dose} />
+          ))}
+
+          <SimuladorEventos
+            doses={doses}
+            mensagem={simulador.mensagem}
+            onRetirada={simulador.simularRetirada}
+            onAtraso={simulador.simularAtraso}
+            onForaDeHora={simulador.simularForaDeHora}
+            onTemperatura={simulador.simularTemperatura}
+            onLimpar={() => setConfirmarLimpeza(true)}
+          />
+        </>
+      )}
+
+      {confirmarLimpeza && (
+        <ConfirmDialog
+          mensagem="Apagar todos os eventos simulados? O histórico e os alertas vão ficar vazios."
+          textoConfirmar="Sim, apagar"
+          onConfirmar={limpar}
+          onCancelar={() => setConfirmarLimpeza(false)}
+        />
+      )}
     </section>
   )
 }

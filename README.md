@@ -43,7 +43,6 @@ Como não há uma caixa real conectada ao painel, a tela **Hoje** tem uma área 
 
 - [Node.js](https://nodejs.org/) 20.19 ou mais recente (ou 22.12+)
 - npm (vem junto com o Node)
-- Uma conta na [MockAPI](https://mockapi.io/) com os resources `remedios`, `contatos` e `eventos`
 
 ## Instalação
 
@@ -53,15 +52,20 @@ cd Memora
 npm install
 ```
 
-Copie o arquivo `.env.example` para `.env` e coloque as URLs do seu projeto na MockAPI:
+Depois, copie o arquivo `.env.example` para um arquivo novo chamado `.env`:
 
-```
-VITE_API_URL=https://SEU_ID.mockapi.io/api/v1
-VITE_API_URL_EVENTOS=https://SEU_ID.mockapi.io/api/v1
+```bash
+cp .env.example .env
 ```
 
-- `VITE_API_URL` é usada pelos resources `remedios` e `contatos`.
-- `VITE_API_URL_EVENTOS` é usada pelo resource `eventos`. Ela existe separada porque o plano grátis da MockAPI tem limite de resources por projeto. Se o seu projeto aceitar os três, use a mesma URL nas duas.
+No Windows (PowerShell), use `copy .env.example .env`.
+
+O `.env.example` já vem com as URLs da MockAPI do projeto, então não é preciso criar conta nem mudar nada:
+
+- `VITE_API_URL` guarda os resources `remedios` e `contatos`.
+- `VITE_API_URL_EVENTOS` guarda o resource `eventos`. Ele fica em outro projeto da MockAPI porque o plano grátis permite só 2 resources por projeto.
+
+Os dados da MockAPI são todos fictícios.
 
 ### Dados de exemplo (opcional)
 
@@ -71,7 +75,7 @@ Para começar com dados fictícios já cadastrados (3 remédios, 3 contatos e os
 npm run seed
 ```
 
-> Atenção: o seed **apaga tudo** o que estiver nos resources `remedios`, `contatos` e `eventos` antes de cadastrar os dados de exemplo.
+> Atenção: o seed **apaga tudo** o que estiver nos resources `remedios`, `contatos` e `eventos` antes de cadastrar os dados de exemplo. Como a MockAPI é a mesma do projeto, os dados também mudam no site publicado.
 
 ## Execução
 

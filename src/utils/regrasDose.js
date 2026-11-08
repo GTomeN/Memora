@@ -107,3 +107,18 @@ export function statusDaCaixa(doses, eventos, agora) {
   }
   return 'AGUARDANDO'
 }
+
+export function horariosDosRemedios(remedios) {
+  const horarios = []
+  for (const remedio of remedios) {
+    if (!remedio.ativo) {
+      continue
+    }
+    for (const horario of remedio.horarios) {
+      if (!horarios.includes(horario)) {
+        horarios.push(horario)
+      }
+    }
+  }
+  return horarios.sort((a, b) => horarioEmMinutos(a) - horarioEmMinutos(b))
+}

@@ -6,6 +6,8 @@ import useSimulador from '../hooks/useSimulador'
 import StatusCaixa from '../components/StatusCaixa'
 import CardDose from '../components/CardDose'
 import AvisoReposicao from '../components/AvisoReposicao'
+import AlertaBanner from '../components/AlertaBanner'
+import { alertasPendentes } from '../utils/cascata'
 import SimuladorEventos from '../components/SimuladorEventos'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Carregando from '../components/Carregando'
@@ -24,6 +26,7 @@ function Hoje() {
   const [confirmarLimpeza, setConfirmarLimpeza] = useState(false)
 
   const carregando = remediosApi.carregando || eventosApi.carregando
+  const quantidadeAlertas = alertasPendentes(eventosApi.eventos).length
 
   async function limpar() {
     setConfirmarLimpeza(false)
@@ -41,6 +44,7 @@ function Hoje() {
 
       {!carregando && (
         <>
+          <AlertaBanner quantidade={quantidadeAlertas} />
           <StatusCaixa status={status} />
           <AvisoReposicao avisos={remediosApi.avisosReposicao} />
 

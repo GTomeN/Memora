@@ -1,16 +1,8 @@
-import { useState, useEffect } from 'react'
+import useAgora from './useAgora'
 import { montarDosesDoDia, statusDaCaixa } from '../utils/regrasDose'
 
 function useDosesDeHoje(remedios, eventos) {
-  const [agora, setAgora] = useState(() => new Date())
-
-  useEffect(() => {
-    const intervalo = setInterval(() => {
-      setAgora(new Date())
-    }, 60000)
-
-    return () => clearInterval(intervalo)
-  }, [])
+  const agora = useAgora()
 
   const doses = montarDosesDoDia(remedios, eventos, agora)
   const status = statusDaCaixa(doses, eventos, agora)

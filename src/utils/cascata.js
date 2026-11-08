@@ -6,6 +6,10 @@ export function geraAlerta(evento) {
   return TIPOS_QUE_GERAM_ALERTA.includes(evento.tipo)
 }
 
+export function alertasPendentes(eventos) {
+  return eventos.filter((evento) => geraAlerta(evento) && !evento.visto)
+}
+
 export function ordenarPorCascata(contatos) {
   return [...contatos].sort((a, b) => a.ordemCascata - b.ordemCascata)
 }

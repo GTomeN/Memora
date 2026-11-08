@@ -63,6 +63,16 @@ VITE_API_URL_EVENTOS=https://SEU_ID.mockapi.io/api/v1
 - `VITE_API_URL` é usada pelos resources `remedios` e `contatos`.
 - `VITE_API_URL_EVENTOS` é usada pelo resource `eventos`. Ela existe separada porque o plano grátis da MockAPI tem limite de resources por projeto. Se o seu projeto aceitar os três, use a mesma URL nas duas.
 
+### Dados de exemplo (opcional)
+
+Para começar com dados fictícios já cadastrados (3 remédios, 3 contatos e os eventos dos últimos 8 dias):
+
+```bash
+npm run seed
+```
+
+> Atenção: o seed **apaga tudo** o que estiver nos resources `remedios`, `contatos` e `eventos` antes de cadastrar os dados de exemplo.
+
 ## Execução
 
 ```bash
@@ -78,6 +88,13 @@ Outros comandos:
 | `npm run build` | Gera a versão de produção na pasta `dist` |
 | `npm run preview` | Abre a versão de produção localmente |
 | `npm run lint` | Verifica o código com o oxlint |
+| `npm run seed` | Apaga os dados da MockAPI e cadastra os dados de exemplo |
+
+## Lembrete de voz
+
+A tela **Lembrete de voz** grava o áudio pelo microfone do navegador, usando a API `MediaRecorder`. Cada horário tem um lembrete de até 15 segundos.
+
+Os áudios ficam guardados **só no navegador** (no `localStorage`), não na MockAPI. Por isso, eles não aparecem em outro computador ou em outro navegador. Na caixa real, o áudio seria enviado para o dispositivo pela parte de Edge do projeto.
 
 ## Integrantes
 

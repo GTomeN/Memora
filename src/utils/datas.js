@@ -46,3 +46,21 @@ export function formatarHora(data) {
   const minutos = String(d.getMinutes()).padStart(2, '0')
   return `${horas}h${minutos}`
 }
+
+const NOMES_DOS_DIAS = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb']
+
+export function formatarData(data) {
+  const d = new Date(data)
+  const dia = String(d.getDate()).padStart(2, '0')
+  const mes = String(d.getMonth() + 1).padStart(2, '0')
+  return `${dia}/${mes}`
+}
+
+export function formatarDia(data) {
+  const d = new Date(data)
+  return `${NOMES_DOS_DIAS[d.getDay()]} ${formatarData(d)}`
+}
+
+export function diaFuturo(dia, agora) {
+  return new Date(dia) > new Date(agora) && !mesmoDia(dia, agora)
+}

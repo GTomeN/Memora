@@ -11,7 +11,7 @@ import Alertas from './pages/Alertas'
 function App() {
   return (
     <div>
-      <div className="min-h-dvh bg-fundo">
+      <div className="min-h-dvh">
       <Header />
       <NavMenu />
 

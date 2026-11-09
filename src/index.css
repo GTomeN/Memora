@@ -1,2 +1,8 @@
 @import "tailwindcss";
 
+@theme {
+    --color-pinho-50: #eaf2ef;
+    --color-pinho-600: #2f5d50;
+    --color-pinho-700: #244a40;
+    --color-fundo: #f3f5f2; 
+}

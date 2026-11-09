@@ -11,6 +11,7 @@ import Alertas from './pages/Alertas'
 function App() {
   return (
     <div>
+      <div className="min-h-dvh bg-fundo">
       <Header />
       <NavMenu />
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/alertas" element={<Alertas />} />
         </Routes>
       </main>
+      </div>
     </div>
   )
 }

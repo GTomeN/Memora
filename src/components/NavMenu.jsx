@@ -1,15 +1,17 @@
 import { NavLink } from 'react-router-dom'
 
+const estiloLink = "block whitespace-nowrap rounded-xl px-4 py-2.5 text-base font-bold text-tinta-suave hover:bg-pinho-50 aria-[current=page]:bg-pinho-600 aria-[current=page]:text-white"
+
 function NavMenu() {
   return (
     <nav>
-      <ul>
-        <li><NavLink to="/" end>Hoje</NavLink></li>
-        <li><NavLink to="/remedios">Remédios</NavLink></li>
-        <li><NavLink to="/rede-de-cuidado">Rede de cuidado</NavLink></li>
-        <li><NavLink to="/lembrete-de-voz">Lembrete de voz</NavLink></li>
-        <li><NavLink to="/historico">Histórico</NavLink></li>
-        <li><NavLink to="/alertas">Alertas</NavLink></li>
+      <ul className="flex gap-1 overflow-x-auto px-4 pb-3 lg:flex-col">
+        <li><NavLink to="/" end className={estiloLink}>Hoje</NavLink></li>
+        <li><NavLink to="/remedios" className={estiloLink}>Remédios</NavLink></li>
+        <li><NavLink to="/rede-de-cuidado" className={estiloLink}>Rede de cuidado</NavLink></li>
+        <li><NavLink to="/lembrete-de-voz" className={estiloLink}>Lembrete de voz</NavLink></li>
+        <li><NavLink to="/historico" className={estiloLink}>Histórico</NavLink></li>
+        <li><NavLink to="/alertas" className={estiloLink}>Alertas</NavLink></li>
       </ul>
     </nav>
   )

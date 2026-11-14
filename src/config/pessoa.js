@@ -1,3 +1,3 @@
 export const pessoa = {
-  nome: 'Dona Lurdes',
+  nome: 'Dona Lurdes (fictícia)',
 }

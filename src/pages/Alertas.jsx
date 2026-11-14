@@ -20,9 +20,13 @@ function Alertas() {
   const carregando = remediosApi.carregando || contatosApi.carregando || eventosApi.carregando
 
   return (
-    <section>
-      <h2>Alertas</h2>
-      <p>Se ninguém marcar "Vi o aviso" em 10 minutos, o aviso passa para a próxima pessoa da fila.</p>
+    <section className="space-y-6">
+      <div>
+        <h2>Alertas</h2>
+        <p className="mt-2 text-tinta-suave">
+          Se ninguém marcar "Vi o aviso" em 10 minutos, o aviso passa para a próxima pessoa da fila.
+        </p>
+      </div>
 
       <MensagemErro mensagem={eventosApi.erro} />
       <MensagemErro mensagem={remediosApi.erro} />
@@ -30,11 +34,17 @@ function Alertas() {
 
       {carregando && <Carregando texto="Carregando os avisos..." />}
 
-      {!carregando && alertas.length === 0 && <p>Nenhum aviso pendente. Tudo certo por aqui.</p>}
+      {!carregando && alertas.length === 0 && (
+        <p className="cartao font-bold text-ok-700">Nenhum aviso pendente. Tudo certo por aqui.</p>
+      )}
 
-      {!carregando && alertas.map((alerta) => (
-        <CardAlerta key={alerta.evento.id} alerta={alerta} onVisto={marcarVisto} />
-      ))}
+      {!carregando && (
+        <div className="grid gap-3">
+          {alertas.map((alerta) => (
+            <CardAlerta key={alerta.evento.id} alerta={alerta} onVisto={marcarVisto} />
+          ))}
+        </div>
+      )}
     </section>
   )
 }

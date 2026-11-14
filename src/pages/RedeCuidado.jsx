@@ -71,25 +71,35 @@ function RedeCuidado() {
   }
 
   return (
-    <section>
-      <h2>Rede de cuidado</h2>
-      <p>Quando um aviso não é visto em 10 minutos, ele passa para a próxima pessoa da fila.</p>
+    <section className="space-y-6">
+      <div>
+        <h2>Rede de cuidado</h2>
+        <p className="mt-2 text-tinta-suave">
+          Quando um aviso não é visto em 10 minutos, ele passa para a próxima pessoa da fila.
+        </p>
+      </div>
 
       <MensagemErro mensagem={erro} />
 
       {!carregando && !temContatoReserva(contatos) && (
-        <p>Cadastre pelo menos 2 pessoas ativas. Assim, se a primeira não puder ver o aviso, sempre tem alguém de reserva.</p>
+        <p className="rounded-xl border-l-4 border-atencao-300 bg-atencao-50 px-4 py-3 font-bold text-atencao-800">
+          Cadastre pelo menos 2 pessoas ativas. Assim, se a primeira não puder ver o aviso, sempre tem alguém de reserva.
+        </p>
       )}
 
       {!carregando && nomesNoWhatsapp.length > 0 && (
-        <p>Recebem aviso pelo WhatsApp: {nomesNoWhatsapp.join(', ')}.</p>
+        <p className="rounded-xl bg-pinho-50 px-4 py-3 text-pinho-700">
+          Recebem aviso pelo WhatsApp: <strong>{nomesNoWhatsapp.join(', ')}</strong>.
+        </p>
       )}
       {!carregando && nomesNoWhatsapp.length === 0 && (
-        <p>Ninguém da fila aceitou receber aviso pelo WhatsApp. Os avisos vão aparecer só no painel.</p>
+        <p className="rounded-xl bg-pinho-50 px-4 py-3 text-pinho-700">
+          Ninguém da fila aceitou receber aviso pelo WhatsApp. Os avisos vão aparecer só no painel.
+        </p>
       )}
 
       {!mostrarFormulario && (
-        <button type="button" onClick={abrirNovo}>Cadastrar contato</button>
+        <button type="button" onClick={abrirNovo} className="botao-primario">Cadastrar contato</button>
       )}
 
       {mostrarFormulario && (

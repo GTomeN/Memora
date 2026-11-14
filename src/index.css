@@ -44,6 +44,35 @@
     }
 }
 
+
 @utility cartao {
-    @apply rounded-2xl border border-linha bg-superficie p-5
+  @apply rounded-2xl border border-linha bg-superficie p-5;
+}
+
+@utility botao {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-45;
+}
+
+@utility botao-primario {
+  @apply botao bg-pinho-600 text-white hover:bg-pinho-700;
+}
+
+@utility botao-secundario {
+  @apply botao border-2 border-pinho-600 bg-superficie text-pinho-700 hover:bg-pinho-50;
+}
+
+@utility botao-discreto {
+  @apply botao px-3 text-tinta-suave underline-offset-4 hover:bg-fundo hover:underline;
+}
+
+@utility rotulo {
+  @apply mb-1 block text-base font-bold;
+}
+
+@utility campo {
+  @apply block w-full rounded-xl border-2 border-linha bg-superficie px-4 py-3 text-lg text-tinta placeholder:text-tinta-suave/70 focus:border-pinho-600 focus:outline-none;
+}
+
+@utility erro-campo {
+  @apply mt-1 text-base font-bold text-atencao-800;
 }

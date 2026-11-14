@@ -5,7 +5,7 @@ const estiloLink = "block whitespace-nowrap rounded-xl px-4 py-2.5 text-base fon
 function NavMenu() {
   return (
     <nav>
-      <ul className="flex gap-1 overflow-x-auto px-4 pb-3 lg:flex-col">
+      <ul className="flex gap-1 overflow-x-auto px-4 pb-3 lg:flex-col [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <li><NavLink to="/" end className={estiloLink}>Hoje</NavLink></li>
         <li><NavLink to="/remedios" className={estiloLink}>Remédios</NavLink></li>
         <li><NavLink to="/rede-de-cuidado" className={estiloLink}>Rede de cuidado</NavLink></li>

@@ -11,7 +11,7 @@ import Alertas from './pages/Alertas'
 function App() {
   return (
     <div className="min-h-dvh bg-fundo lg:grid lg:grid-cols-[17rem_1fr]">
-      <aside className="border-b bg-superficie lg:border-b-0 lg:sticky lg:top-0 lg:h-dvh lg:shadow-[18px_0_16px_rgba(0,0,0,0.06)] lg:z-10">
+      <aside className="bg-superficie lg:sticky lg:top-0 lg:h-dvh lg:shadow-[18px_0_16px_rgba(0,0,0,0.06)] lg:z-10 shadow-[0_4px_16px_rgba(0,0,0,0.06)]">
         <Header />
         <NavMenu />
       </aside>

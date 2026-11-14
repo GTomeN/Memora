@@ -11,9 +11,14 @@ function AlertaBanner({ quantidade }) {
   }
 
   return (
-    <section aria-label="Avisos pendentes">
-      <p>{texto}</p>
-      <Link to="/alertas">Ver avisos</Link>
+    <section
+      aria-label="Avisos pendentes"
+      className="flex flex-col gap-3 rounded-2xl 
+      border-2 border-atencao-300 bg-atencao-50 p-4 
+      sm:flex-row sm:items-center sm:justify-between">
+
+      <p className="font-bold text-atencao-800">{texto}</p>
+      <Link className="botao-primario" to="/alertas">Ver avisos</Link>
     </section>
   )
 }

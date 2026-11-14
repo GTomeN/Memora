@@ -2,7 +2,8 @@
 
 > Painel web para o familiar que cuida de uma pessoa idosa com Alzheimer: mostra se o remédio de cada horário saiu da caixa e avisa quando algo precisa de atenção.
 
-**Site publicado:** https://memora-painel.vercel.app
+https://memora-painel.vercel.app
+
 **Global Solution 2026.2 · CitizenTech · FIAP · Engenharia de Software, 1º ano**
 
 > O Memora é um **apoio ao cuidado**. Ele não substitui o cuidador, o médico ou o farmacêutico.

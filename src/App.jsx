@@ -10,11 +10,11 @@ import Alertas from './pages/Alertas'
 
 function App() {
   return (
-      <div className="min-h-dvh bg-fundo lg:grid lg:grid-cols-[17rem_1fr]">
-        <aside className="border-b border-linha bg-superficie lg:border-r lg:border-b-0 lg:sticky lg:top-0 lg:h-dvh">
-          <Header />
-          <NavMenu />
-        </aside>
+    <div className="min-h-dvh bg-fundo lg:grid lg:grid-cols-[17rem_1fr]">
+      <aside className="border-b bg-superficie lg:border-b-0 lg:sticky lg:top-0 lg:h-dvh lg:shadow-[18px_0_16px_rgba(0,0,0,0.06)] lg:z-10">
+        <Header />
+        <NavMenu />
+      </aside>
 
       <main className="px-4 py-6 lg:py-12">
         <div className="mx-auto max-w-3xl">

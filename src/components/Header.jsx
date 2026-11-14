@@ -16,12 +16,11 @@ function Header() {
         <p className="text-base text-tinta-suave">Painel do cuidador</p>
       </div>
 
-        <p className="text-base rounded-xl bg-pinho-50 px-3 py-2 lg:mt-6">
-          <span className="block text-tinta-suave">Acompanhando</span>
-          <span className="block font-bold text-pinho-700">{pessoa.nome}</span>
-        </p>
+      <p className="text-base rounded-xl bg-pinho-50 px-3 py-2 lg:mt-6">
+        <span className="block text-tinta-suave">Acompanhando</span>
+        <span className="block font-bold text-pinho-700">{pessoa.nome}</span>
+      </p>
     </header>
   )
 }
-
 export default Header

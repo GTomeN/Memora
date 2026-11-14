@@ -1,39 +1,49 @@
 @import "tailwindcss";
 
 @theme {
-  /* Fonte criada para baixa visão (Braille Institute). Cuidadores de várias idades */
-  --font-sans: "Atkinson Hyperlegible", ui-sans-serif, system-ui, sans-serif;
+    /* Fonte criada para baixa visão (Braille Institute). Cuidadores de várias idades */
+    --font-sans: "Atkinson Hyperlegible", ui-sans-serif, system-ui, sans-serif;
 
-  /* Base neutra */
-  --color-fundo: #f3f5f2;
-  --color-superficie: #ffffff;
-  --color-tinta: #1e2a2b;
-  --color-tinta-suave: #4a5759;
-  --color-linha: #d6ddd9;
+    /* Base neutra */
+    --color-fundo: #f3f5f2;
+    --color-superficie: #ffffff;
+    --color-tinta: #1e2a2b;
+    --color-tinta-suave: #4a5759;
+    --color-linha: #d6ddd9;
 
-  /* Cor da marca: verde-pinho, calmo e confiável (arquétipo "O Cuidador") */
-  --color-pinho-50: #eaf2ef;
-  --color-pinho-100: #d3e4dd;
-  --color-pinho-600: #2f5d50;
-  --color-pinho-700: #244a40;
+    /* Cor da marca: verde-pinho, calmo e confiável (arquétipo "O Cuidador") */
+    --color-pinho-50: #eaf2ef;
+    --color-pinho-100: #d3e4dd;
+    --color-pinho-600: #2f5d50;
+    --color-pinho-700: #244a40;
 
-  /* Estados: nunca vermelho forte. Âmbar para pedir atenção */
-  --color-ok-50: #e7f3eb;
-  --color-ok-700: #23633d;
-  --color-atencao-50: #fdf3dc;
-  --color-atencao-300: #e8c56f;
-  --color-atencao-800: #6e4609;
-  --color-info-50: #e8eff7;
-  --color-info-700: #2a5683;
+    /* Estados: nunca vermelho forte. Âmbar para pedir atenção */
+    --color-ok-50: #e7f3eb;
+    --color-ok-700: #23633d;
+    --color-ok-300: #9fcfae;
+    --color-ok-100: #d9ede0;
+    --color-atencao-50: #fdf3dc;
+    --color-atencao-300: #e8c56f;
+    --color-atencao-800: #6e4609;
+    --color-info-50: #e8eff7;
+    --color-info-700: #2a5683;
 
-  /* Cores dos compartimentos da caixa física (manhã, tarde, noite) */
-  --color-manha: #e2b23f;
-  --color-tarde: #d97a45;
-  --color-noite: #4a5e9a;
+    /* Cores dos compartimentos da caixa física (manhã, tarde, noite) */
+    --color-manha: #e2b23f;
+    --color-tarde: #d97a45;
+    --color-noite: #4a5e9a;
 }
 
 @layer base {
     body {
         @apply bg-fundo font-sans text-lg text-tinta;
     }
+
+    h2 {
+        @apply text-3xl font-bold tracking-tight;
+    }
+}
+
+@utility cartao {
+    @apply rounded-2xl border border-linha bg-superficie p-5
 }

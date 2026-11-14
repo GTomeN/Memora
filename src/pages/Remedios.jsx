@@ -65,16 +65,17 @@ function Remedios() {
   }
 
   return (
-    <section>
+    <section className="space-y-6">
       <h2>Remédios</h2>
 
       <MensagemErro mensagem={erro} />
       <AvisoReposicao avisos={avisosReposicao} />
 
       {!mostrarFormulario && (
-        <button type="button" onClick={abrirNovo}>Cadastrar remédio</button>
+        <button type="button" onClick={abrirNovo}
+          className="botao-primario">
+          Cadastrar remédio</button>
       )}
-
       {mostrarFormulario && (
         <FormRemedio
           key={chaveFormulario}

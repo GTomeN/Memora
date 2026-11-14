@@ -24,41 +24,63 @@ function FormRemedio({ remedio, erros, onSalvar, onCancelar }) {
   }
 
   return (
-    <form onSubmit={enviar} noValidate>
-      <h3>{titulo}</h3>
+    <form onSubmit={enviar} noValidate
+      className="cartao space-y-5">
+      <h3 className="text-xl font-bold">{titulo}</h3>
 
-      <label htmlFor="nome">Nome</label>
-      <input id="nome" name="nome" value={dados.nome} onChange={alterarCampo} />
-      {erros.nome && <p>{erros.nome}</p>}
+      <div>
+        <label htmlFor="nome" className="rotulo">Nome</label>
+        <input id="nome" name="nome" value={dados.nome} onChange={alterarCampo} className="campo" />
+        {erros.nome && <p className="erro-campo">{erros.nome}</p>}
+      </div>
 
-      <label htmlFor="dosagem">Dosagem</label>
-      <input id="dosagem" name="dosagem" value={dados.dosagem} onChange={alterarCampo} placeholder="1 comprimido" />
+      <div>
+        <label htmlFor="dosagem" className="rotulo">Dosagem</label>
+        <input id="dosagem" name="dosagem" value={dados.dosagem} onChange={alterarCampo} placeholder="1 comprimido" className="campo" />
+      </div>
 
-      <label htmlFor="cor">Cor do comprimido</label>
-      <input id="cor" name="cor" value={dados.cor} onChange={alterarCampo} />
+      <div>
+        <label htmlFor="cor" className="rotulo">Cor do comprimido</label>
+        <input id="cor" name="cor" value={dados.cor} onChange={alterarCampo} placeholder="Branco, azul" className="campo" />
+      </div>
 
-      <label htmlFor="horarios">Horários</label>
-      <input id="horarios" name="horarios" value={dados.horarios} onChange={alterarCampo} placeholder="08:00, 20:00" />
-      {erros.horarios && <p>{erros.horarios}</p>}
+      <div>
+        <label htmlFor="horarios" className="rotulo">Horários</label>
+        <input id="horarios" name="horarios" value={dados.horarios} onChange={alterarCampo} placeholder="08:00, 20:00" className="campo" />
+        {erros.horarios && <p className="erro-campo">{erros.horarios}</p>}
+      </div>
 
-      <label htmlFor="estoque">Comprimidos na caixa</label>
-      <input id="estoque" name="estoque" type="number" min="0" value={dados.estoque} onChange={alterarCampo} />
-      {erros.estoque && <p>{erros.estoque}</p>}
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label htmlFor="estoque" className="rotulo">Comprimidos na caixa</label>
+          <input id="estoque" name="estoque" type="number" min="0" inputMode="numeric" value={dados.estoque} onChange={alterarCampo} className="campo" />
+          {erros.estoque && <p className="erro-campo">{erros.estoque}</p>}
+        </div>
 
-      <label htmlFor="limiteTemperatura">Temperatura máxima (°C)</label>
-      <input id="limiteTemperatura" name="limiteTemperatura" type="number" value={dados.limiteTemperatura} onChange={alterarCampo} />
-      {erros.limiteTemperatura && <p>{erros.limiteTemperatura}</p>}
+        <div>
+          <label htmlFor="limiteTemperatura" className="rotulo">Temperatura máxima (°C)</label>
+          <input id="limiteTemperatura" name="limiteTemperatura" type="number" inputMode="numeric" value={dados.limiteTemperatura} onChange={alterarCampo} className="campo" />
+          {erros.limiteTemperatura && <p className="erro-campo">{erros.limiteTemperatura}</p>}
+        </div>
+      </div>
 
-      <label htmlFor="observacao">Observação</label>
-      <textarea id="observacao" name="observacao" value={dados.observacao} onChange={alterarCampo} />
+      <div>
+        <label htmlFor="observacao" className="rotulo">Observação</label>
+        <textarea id="observacao" name="observacao" value={dados.observacao} onChange={alterarCampo} className="campo min-h-24" />
+      </div>
 
-      <label htmlFor="ativo">
-        <input id="ativo" name="ativo" type="checkbox" checked={dados.ativo} onChange={alterarCampo} />
+      <label htmlFor="ativo"
+        className="flex items-center gap-3 font-bold">
+        <input id="ativo" name="ativo" type="checkbox"
+          className="size-5 accent-pinho-600"
+          checked={dados.ativo} onChange={alterarCampo} />
         Remédio em uso
       </label>
 
-      <button type="submit">Salvar remédio</button>
-      <button type="button" onClick={onCancelar}>Cancelar</button>
+      <div className="flex flex-col-reverse gap-3 sm:flex-row">
+        <button type="submit" className="botao-primario">Salvar remédio</button>
+        <button type="button" onClick={onCancelar} className="botao-secundario">Cancelar</button>
+      </div>
     </form>
   )
 }

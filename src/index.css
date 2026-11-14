@@ -10,6 +10,7 @@
     --color-tinta: #1e2a2b;
     --color-tinta-suave: #4a5759;
     --color-linha: #d6ddd9;
+    --color-borda-campo: #7d8789;
 
     /* Cor da marca: verde-pinho, calmo e confiável (arquétipo "O Cuidador") */
     --color-pinho-50: #eaf2ef;
@@ -66,11 +67,11 @@
 }
 
 @utility rotulo {
-  @apply mb-1 block text-base font-bold;
+  @apply mb-2 block text-base font-bold;
 }
 
 @utility campo {
-  @apply block w-full rounded-xl border-2 border-linha bg-superficie px-4 py-3 text-lg text-tinta placeholder:text-tinta-suave/70 focus:border-pinho-600 focus:outline-none;
+  @apply block w-full rounded-xl border border-borda-campo bg-fundo px-4 py-3 text-lg text-tinta placeholder:text-tinta-suave/70 focus:border-pinho-600 focus:outline-none;
 }
 
 @utility erro-campo {

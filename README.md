@@ -15,7 +15,7 @@ https://memora-painel.vercel.app
 | Campo | Resposta |
 |---|---|
 | Nome da CitizenTech | Memora |
-| Cidade e bairro | São Paulo, [preencher bairro] |
+| Cidade | São Paulo |
 | Cidadão beneficiado | Pessoa idosa com Alzheimer em estágio inicial ou moderado que passa parte do dia sozinha em casa, e o familiar que cuida dela. |
 | Problema, em uma frase | Idosos com Alzheimer esquecem de tomar o remédio ou tomam a mesma dose duas vezes, e o familiar que cuida não tem como saber disso quando não está presente. |
 | Como funciona | No horário da dose, a caixa acende só o compartimento certo e toca um lembrete com a voz gravada da família; um sensor confirma se o remédio foi retirado. Se não for, o cuidador recebe um alerta no painel e no WhatsApp, e uma tentativa de abrir outro compartimento fora de hora também é avisada. A caixa também vigia a temperatura onde os remédios ficam guardados e funciona mesmo sem internet. |

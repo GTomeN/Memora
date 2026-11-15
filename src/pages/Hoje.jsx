@@ -50,7 +50,11 @@ function Hoje() {
 
           <div>
             <h3 className="mb-3 text-xl font-bold">Doses de hoje</h3>
-            {doses.length === 0 && <p>...</p>}
+            {doses.length === 0 && (
+              <p className="cartao text-tinta-suave">
+                Nenhuma dose prevista para hoje. Cadastre os remédios na tela Remédios.
+              </p>
+            )}
             <div className="grid gap-3">
               {doses.map((dose) => (
                 <CardDose key={dose.chave} dose={dose} />
